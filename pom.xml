@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>programming_task</groupId>
 	<artifactId>pattern-recognition</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>pattern-recognition</name>
 	<description>Programming Task</description>
 
