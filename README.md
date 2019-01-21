@@ -25,41 +25,42 @@ return the lines that have at least N or more collinear points.
 
 ## API
 ### POST /point with body { "x:": ..., "y:"... }
-Add a point to the space. If the point is inserted in the space, the HTTP Status CREATED will be returned.
-Coordinates x and y cannot be null, otherwise the HTTP Status BAD_REQUEST will be returned.
-The same point cannot be added twice to the space,  otherwise HTTP Status BAD_REQUEST will be returned.
+Add a point to the space. If the point is inserted in the space, the HTTP Status code CREATED will be returned.
+Coordinates x and y cannot be null, otherwise the HTTP Status code BAD_REQUEST will be returned.
+The same point cannot be added twice to the space,  otherwise HTTP Status code BAD_REQUEST will be returned.
 
 ### GET /space
 Get all points in the space.
 	
 ### GET /lines/{n}
 Get the longest line segment passing through at last N points. The parameter n should be greater than or equal to 2, 
-otherwise a HTTP Status BAD_REQUEST will be returned.
+otherwise a HTTP Status code BAD_REQUEST will be returned.
 	
 ### DELETE /space
 Remove all points from the space.
 	
 ## Usage
-### From IDE
-Import the project inside your IDE from the following repository:
+This is a Maven project and it can be cloned from the following repository:
 
 ```https://github.com/nicolaslatorre/pattern-recognition.git```
 
-Run the PatternRecognitionApplication in src/main/java/programming_task/pattern_recognition/PatternRecognitionApplication.java
-	
-Now you can direct your requests to the address http://localhost:8080/ respecting the provided API.
+After you have cloned the repository you can either import the project into your IDE or create an executable jar file.
+### From IDE
+Run the PatternRecognitionApplication which is located in the following folder: 
+
+```src/main/java/programming_task/pattern_recognition/PatternRecognitionApplication.java```
 
 ### Build an executable jar file
-This is a Maven project, therefore maven must be installed.
-
 From the terminal go the root folder of the project and execute the following command:
 
 ```mvn clean package```
 	
-This will create a jar inside the target folder named pattern-recognition.jar. 
+This will create a jar inside the target folder named pattern-recognition-1.0.jar. 
 You can run the application using the following command from the root folder of the project:
 
-```java -jar target/pattern-recognition.jar```
+```java -jar target/pattern-recognition-1.0.jar```
+
+Once the application has started, you can direct your requests to the address http://localhost:8080/ respecting the provided API.
 
 ## Improvements
 - The testing of the Rest Controller could be improved. Currently there are only two tests, 
