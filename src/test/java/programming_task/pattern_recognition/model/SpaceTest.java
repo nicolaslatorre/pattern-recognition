@@ -2,8 +2,6 @@ package programming_task.pattern_recognition.model;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -23,6 +21,15 @@ public class SpaceTest {
         Set<Line> lines = space.getAllLines();
 
         assertEquals(0, points.size());
+        assertEquals(0, lines.size());
+    }
+
+    @Test
+    public void addOnePointAndGetCollinearPointsTest() {
+        Point a = new Point(2.0, 3.0);
+        space.addPoint(a);
+
+        Set<Line> lines = space.getCollinearPoints(2);
         assertEquals(0, lines.size());
     }
 

@@ -13,7 +13,7 @@ public class Space {
     }
 
     public Set<Line> getCollinearPoints(int numberOfPoints) {
-        if( numberOfPoints >= 2) {
+        if( (numberOfPoints >= 2) && points.size() >= 2) {
             computeCollinearPoints();
             return getLinesWithDesiredNumberOfPoints(numberOfPoints);
         }

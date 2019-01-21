@@ -15,6 +15,7 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @Validated
@@ -31,10 +32,13 @@ public class PatternRecognitionController {
     }
 
     @GetMapping("/lines/{n}")
-    public Set<Line> getCollinearPoints(
+    public Set<Set<Point>> getCollinearPoints(
             @PathVariable(value = "n", required = true)
             @Min(value = 2, message = "A line should contain at least two points, n must be greater than or equal to 2.") int n) {
-        return space.getCollinearPoints(n);
+        Set<Line> lines = space.getCollinearPoints(n);
+        return lines.stream()
+                .map( line -> line.getPoints())
+                .collect(Collectors.toSet());
     }
 
     @PostMapping(value = "/point")
